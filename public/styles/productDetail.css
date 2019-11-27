@@ -1,0 +1,145 @@
+.totalProDetail{
+    width: 100%;
+    position: relative;
+}
+.totalside{
+    width: 95%;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    position: absolute;
+    margin-left: 30px;
+}
+.totalside .sideleft{
+    width: 30%;
+}
+.totalside .sideleft img{
+    max-width: 95%;
+    max-height: 400px;
+}
+.totalside .sideright{
+    width: 70%;
+    border-left: 1px solid rgba(128, 128, 128, 0.61);
+    padding-left: 10px;
+}
+.sideright .title{
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.61);
+}
+.sideright p.subtitle{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.sideright .priceAndDescription{
+    padding: 10px;
+}
+.sideright p.price{
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 5px ;
+}
+.sideright .totalBuy{
+    padding: 10px;
+    display: flex;
+    border-top: 1px solid rgba(128, 128, 128, 0.521);
+}
+.sideright .numberOfProduct{
+    display: flex;
+    border: 1px solid gray;
+    width: 100px;
+    margin-top: 3px;
+}
+.sideright .numberOfProduct p.number{
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+}
+.sideright .numberOfProduct p{
+    width: 33px;
+    text-align: center;
+    font-weight: bold;
+}
+.sideright .numberOfProduct p.sub,
+.sideright .numberOfProduct p.add{
+    cursor: pointer;
+}
+.sideright .numberOfProduct p.sub:hover,
+.sideright .numberOfProduct p.add:hover{
+    background-color: gray;
+}
+.sideright .totalBuy .selectBuy{
+    background-color: brown;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    text-decoration: none;
+    padding: 5px 30px;  
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sideright .totalBuy button.selectBuy{
+    border: 0px;
+}
+.sideright .totalBuy .selectBuy:hover{
+    background-color: red;
+}
+.sideright .totalBuy .selectBuy img{
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+}
+.alertDelete{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+    opacity: 0;
+    visibility: hidden;
+}
+.alertDelete .titleDelete{
+    padding: 20px;
+    background-color: white;
+    height: 100px;
+}
+.alertDelete .titleDelete p{
+    color: black;
+    font-size: 25px;
+}
+.alertDelete .titleDelete .btnDelete{
+    display: flex;
+    margin-top: 20px;
+}
+.alertDelete .titleDelete .btnDelete a{
+    background-color: brown;
+    color: white;
+    text-decoration: none;
+    padding: 5px 30px;  
+    border-radius: 5px;
+    margin-left: 60px;
+    margin-right: 10px;
+}
+.alertDelete .titleDelete .btnDelete a:hover{
+    background-color: red;
+}
+.alertDelete .titleDelete .btnDelete button{
+    background-color: brown;
+    color: white;
+    padding: 5px 20px;  
+    border-radius: 5px;
+    border:0px;
+    cursor: pointer;
+}
+.alertDelete .titleDelete .btnDelete button:hover{
+    background-color: #1aaa1a;
+}
+
+.appear{
+    opacity: 1 !important;
+    visibility: visible !important;
+}

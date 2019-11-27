@@ -1,0 +1,18 @@
+extends ./layouts/common.pug
+
+block  content
+    link(rel="stylesheet", href="/styles/login.css")
+    div(class="totalLogin")
+        div(class="insideLogin")
+            p=errors
+            form(action="/login", method="post")
+                div
+                    label(for="tendangnhap") Tên đăng nhập
+                    br
+                    input(type="text",id="tendangnhap",name="tendangnhap",placeholder="Tên đăng nhập",value=values?values.tendangnhap:"")
+                div
+                    label(for="matkhau") Mật khẩu
+                    br
+                    input(type="password",id="matkhau",name="matkhau",placeholder="Mật khẩu",value=values?values.matkhau:"")
+                div
+                    button Đăng nhập

@@ -1,0 +1,23 @@
+.proInNotFound{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    border-left: 10px solid #1aaa1a;
+    padding-left: 5px;
+}
+.proInNotFound p{
+    font-size: 30px;
+    color: #1aaa1a;
+    font-weight: bold;
+}
+
+.notfound{
+    width: 30%;
+    margin: auto;
+    margin-top: 160px;
+}
+.notfound p{
+    font-size: 25px;
+    text-transform: uppercase;
+    color: red;
+}

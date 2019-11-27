@@ -1,0 +1,27 @@
+.totalUpdate{
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+}
+.totalUpdate .nameCate{
+    display: flex;
+}
+.totalUpdate .nameCate input{
+
+}
+.totalUpdate .nameCate img{
+    width: 30px;
+    height: 30px;
+}
+.totalUpdate .otherInput{
+    display: flex;
+}
+.totalUpdate .otherInput img{
+    width: 30px;
+    height: 30px;
+}
+.totalUpdate{}
+.totalUpdate{}
+.totalUpdate{}
+.totalUpdate{}
+.totalUpdate{}

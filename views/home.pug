@@ -1,0 +1,18 @@
+extends ./layouts/common.pug
+
+block content
+        div(class="bodyProduct")
+            div(class="titleProduct") 
+                p Product
+            div(class="listProduct")
+                each pro in result.recordset
+                    div(class="eachProduct")
+                        div(class="coverBlackEachProduct")
+                            div(class="coverEachProduct")
+                                p Giá: 
+                                    span= funcCutStringNumber(pro.Giaban)+" đ"
+                                a(href="/products/"+pro.Madanhmuc+"-"+pro.Masanpham) Xem chi tiết
+                        div(class="belowEachProduct")
+                            p=pro.Tensanpham
+                            img(src=pro.Hinhanh, alt="")
+        script(src="/utility/utility.js")

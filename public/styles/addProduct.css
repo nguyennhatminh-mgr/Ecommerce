@@ -1,0 +1,55 @@
+.addProductTotal{
+    width: 95%;
+    margin: auto;
+    margin-top:20px;
+}
+.addProductTotal input{
+    padding: 15px 30px;
+    border: 1px solid #1aaa1a;
+    margin-right: 30px;
+    width: 42%;
+    margin-bottom: 10px;
+}
+.addProductTotal button{
+    padding: 10px 20px;
+    background-color: #1aaa1a;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+}
+/* .addProductTotal img{
+    width: 40px;
+    height: 40px;
+} */
+.addProductTotal .selectCategory{
+    position: relative;
+    width: 42%;
+}
+.addProductTotal .selectCategory input{
+    width: 100%;
+}
+.addProductTotal .selectCategory .subselectCategory{
+    position: absolute;
+    border: 1px solid gray;
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+    top: 47px;
+    width: 100%;
+}
+.addProductTotal .selectCategory .subselectCategory ul{
+    list-style: none;
+}
+.appear{
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.subselectCategory ul li{
+    padding: 5px;
+    cursor: pointer;
+}
+.subselectCategory ul li:hover{
+    background-color: #1aaa1a;
+    color: white;
+}

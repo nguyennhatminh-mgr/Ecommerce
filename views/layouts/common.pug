@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Bán hàng online
+        link(rel="stylesheet", href="/styles/custom.css")
+        link(rel="stylesheet", href="/styles/customProduct.css")
+        script(src="/utility/utility.js")
+    body
+        div(class="subheader")
+            p="Chào mừng " + (user?user.tendangnhap:"")+ " đến với shop"
+        div(class="header")
+            ul(class="setbackground")
+                li(class="sympol")
+                    img(src="/images/ecommerce-icon.png", alt="")
+                li(class="formSearch")
+                    form(action="/search/product",method="POST")
+                        input(type="text" name="searchProduct" placeholder="Tìm kiếm ở đây" value=searchPro?searchPro:"")
+                        button Tìm kiếm
+                li(class="cart")
+                    a(href="")
+                        img(src="/images/cart.png", alt="")
+                        p Giỏ hàng
+                li(class="cart")
+                    a(href="/login")
+                        img(src="/images/login.png", alt="")
+                        p Đăng nhập
+                li(class="cart")
+                    a(href="")
+                        img(src="/images/login.png", alt="")
+                        p Đăng ký
+        div(class="bottomHeader")
+            ul
+                li(class="categoryProduct")
+                    a(href="") DANH MỤC SẢN PHẨM
+                    div(class="listdanhmuc")
+                        each dm in danhmuc
+                            div(class="itemdanhmuc")
+                                a(href="/search/category/"+dm.Madanhmuc)= dm.Tendanhmuc
+                li(class="homePage")
+                    a(href="/home") TRANG CHỦ
+                li(class="addProduct")
+                    a(href="/addProduct") THÊM SẢN PHẨM MỚI
+        block content
+        

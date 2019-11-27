@@ -1,0 +1,92 @@
+.bodyProduct{
+    width: 95%;
+    
+    /* margin: 10px;*/
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.bodyProduct .titleProduct{
+    border-left: 10px solid #1aaa1a;
+    color: #1aaa1a;
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+.bodyProduct .listProduct{
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.bodyProduct .listProduct .eachProduct{
+    border: 1px solid rgba(128, 128, 128, 0);
+    box-shadow: 1px 1px 4px #1aaa1a;
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 19%;
+    height: 300px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.bodyProduct .listProduct .eachProduct:hover{
+    border: 1px solid #1aaa1a;
+}
+.bodyProduct .listProduct .eachProduct .coverBlackEachProduct{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgb(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+}
+.bodyProduct .listProduct .eachProduct:hover .coverBlackEachProduct{
+    opacity: 1;
+    visibility: visible;
+    animation: aniBlackAppear 0.5s forwards;
+}
+@keyframes aniBlackAppear{
+    from{ transform: translateY(-90%);}
+    to{ transform: translateY(0%);}
+}
+
+.bodyProduct .listProduct .eachProduct .coverEachProduct{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.bodyProduct .listProduct .eachProduct .coverEachProduct p{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+.bodyProduct .listProduct .eachProduct .coverEachProduct a{
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    text-decoration: none;
+    background-color: #1aaa1a;
+    padding: 5px 8px;   
+    color: white;
+}
+
+.bodyProduct .listProduct .eachProduct .coverEachProduct a:hover{
+    background-color: red;
+}
+
+.bodyProduct .listProduct .eachProduct .belowEachProduct{
+    padding: 10px;
+}
+
+.bodyProduct .listProduct .eachProduct .belowEachProduct img{
+    max-width: 100%;
+    max-height: 250px;
+}

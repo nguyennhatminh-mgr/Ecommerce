@@ -1,0 +1,41 @@
+extends ./layouts/common.pug
+
+block  content
+    link(rel="stylesheet", href="/styles/productDetail.css")
+    div(class="totalProDetail")
+        div(class="totalside")
+            div(class="sideleft")
+                img(src=result.recordset[0].Hinhanh, alt="")
+            div(class="sideright")
+                div(class="title")
+                    p(class="subtitle")=result.recordset[0].Tensanpham
+                    p= "Nhà sản xuất: "
+                        span(style="color:blue;")=result.recordset[0].Tennhasx
+                div(class="priceAndDescription")
+                    p(class="price") Giá: 
+                        span= funcCutStringNumber(result.recordset[0].Giaban) + " đ"
+                    p(class="description")=result.recordset[0].Motachitiet
+                div(class="totalBuy")
+                    div
+                        p Số lượng
+                        div(class="numberOfProduct")
+                            p(class="sub") -
+                            p(class="number") 1
+                            p(class="add",onclick="addClick("+result.recordset[0].Soluong+")") +
+                    a(href="",class="selectBuy")
+                        img(src="/images/cart.png", alt="")
+                        p Chọn mua
+                    button(class="selectBuy")
+                        img(src="/images/delete.png", alt="")
+                        p Xóa sản phẩm
+                    a(href="/updateProduct/"+result.recordset[0].Masanpham,class="selectBuy")
+                        img(src="/images/update.png", alt="")
+                        p Cập nhật sản phẩm
+
+    div(class="alertDelete")
+        div(class="titleDelete") 
+            p Bạn có chắc chắn muốn xóa ?
+            div(class="btnDelete")
+                a(href="/delete/product/"+result.recordset[0].Masanpham) Có
+                button(class="nodelete") Không
+    script(src="/utility/productDetail.js")

@@ -1,0 +1,44 @@
+/* *{margin: 0; padding: 0;}
+body{
+    width: 100%;
+    height: 680px;
+} */
+.totalLogin{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.totalLogin .insideLogin{
+    width: 40%;
+}
+.totalLogin .insideLogin p{
+    background-color: rgb(228, 68, 68);
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.totalLogin .insideLogin input{
+    font-size: 18px;
+    padding: 5px 10px;
+    border:0px;
+    border-bottom: 1px solid #1aaa1a;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.totalLogin .insideLogin button{
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    background-color: brown;
+    color: wheat;
+    cursor: pointer;
+}
+.totalLogin .insideLogin button:hover{
+    background-color: #1aaa1a;
+    color: white;
+}
+.totalLogin{}
