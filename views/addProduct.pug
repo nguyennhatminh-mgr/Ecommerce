@@ -5,7 +5,7 @@ block content
     div(class="addProductTotal")
         form(action=myAction, method="post",enctype="multipart/form-data")
             div(class="selectCategory")
-                label(for="category") Loại danh mục sản phẩm
+                //- label(for="category") Loại danh mục sản phẩm
                 input(class="catename" id="category" type="text" name="cateproductName" placeholder="Tên danh mục sản phẩm" readonly value=sanpham?sanpham.Tendanhmuc:"")
                 div(class="subselectCategory")
                     ul

@@ -4,11 +4,13 @@
     margin-top:20px;
 }
 .addProductTotal input{
-    padding: 15px 30px;
+    padding: 15px 20px;
     border: 1px solid #1aaa1a;
     margin-right: 30px;
     width: 42%;
     margin-bottom: 10px;
+    font-size: 15px;
+    border-radius: 5px;
 }
 .addProductTotal button{
     padding: 10px 20px;
@@ -31,12 +33,12 @@
 }
 .addProductTotal .selectCategory .subselectCategory{
     position: absolute;
-    border: 1px solid gray;
+    border: 1px solid #bdbaba;
     background-color: white;
     opacity: 0;
     visibility: hidden;
-    top: 47px;
-    width: 100%;
+    top: 49px;
+    border-radius: 3px;
 }
 .addProductTotal .selectCategory .subselectCategory ul{
     list-style: none;
@@ -46,7 +48,7 @@
     visibility: visible !important;
 }
 .subselectCategory ul li{
-    padding: 5px;
+    padding: 5px 10px; 
     cursor: pointer;
 }
 .subselectCategory ul li:hover{

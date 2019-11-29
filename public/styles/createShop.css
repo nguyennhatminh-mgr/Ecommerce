@@ -1,0 +1,35 @@
+.totalShop{
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.totalShop input{
+    padding: 10px 20px;
+    font-size: 17px;
+    border-radius: 5px;
+    border:1px solid #1aaa1a;
+    margin-bottom: 10px;
+    width: 55%;
+}
+.totalShop .titleInShop{
+
+}
+.totalShop .titleInShop p{
+    color: #1aaa1a;
+    font-size: 22px;
+}
+.totalShop button{
+    padding: 10px;
+    background-color: brown;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+}
+.totalShop button:hover{
+    background-color: #1aaa1a;
+}
+.totalShop{}
+.totalShop{}

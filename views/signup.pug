@@ -1,0 +1,47 @@
+link(rel="stylesheet", href="/styles/signup.css")
+div(class="totalSignup")
+    div(class="insideSignup")
+        div(class="avatarSignup")
+            img(src="/images/ecommerce-icon.png", alt="")
+            p SHOPPING WITH CLICK
+        if errors
+            div(style="width:100%; display: flex; justify-content: center;")
+                p(class="err")=errors
+        form(action="/signup", method="post")
+            div(class="chiacot")
+                div(class="cottrai")
+                    div
+                        input(type="text",id="hovaten",name="hovaten",placeholder="Họ và tên",value=values?values.hovaten:"")
+                    div(style="position:relative;")
+                        input(type="text",id="gioitinh",name="gioitinh",placeholder="Giới tính",value=values?values.gioitinh:"",readonly)
+                        div(class="hienthigioitinh")
+                            p(class="itemgioitinh") Nam
+                            p(class="itemgioitinh") Nữ 
+                            p(class="itemgioitinh") Khác
+                    div
+                        input(type="date",id="ngaysinh",name="ngaysinh",placeholder="Ngày sinh",value=values?values.ngaysinh:"")
+                    div
+                        input(type="text",id="diachi",name="diachi",placeholder="Địa chỉ",value=values?values.diachi:"")
+                    div(style="position:relative;")
+                        input(type="text",id="loainguoidung",name="loainguoidung",placeholder="Loại người dùng",value=values?values.loainguoidung:"",readonly)
+                        div(class="hienthiloaind")
+                            p(class="itemloaind") Người mua hàng
+                            p(class="itemloaind") Người bán hàng
+
+                div(class="cotphai")
+                    div
+                        input(type="text",id="email",name="email",placeholder="Email",value=values?values.email:"")
+                    div
+                        input(type="text",id="sodienthoai",name="sodienthoai",placeholder="Số điện thoại",value=values?values.sodienthoai:"")
+                    div
+                        input(type="text",id="tendangnhap",name="tendangnhap",placeholder="Tên đăng nhập",value=values?values.tendangnhap:"")
+                    div
+                        input(type="password",id="matkhau",name="matkhau",placeholder="Mật khẩu",value=values?values.matkhau:"")
+                    div
+                        input(type="password",id="xacnhanmk",name="xacnhanmk",placeholder="Xác nhận",value=values?values.xacnhanmk:"")
+                
+            div
+                button Đăng ký
+        p(class="notaccount") Đã có tài khoản?
+        a(href="/login") Đăng nhập
+script(src="/utility/signup.js")

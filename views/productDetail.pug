@@ -22,15 +22,17 @@ block  content
                             p(class="sub") -
                             p(class="number") 1
                             p(class="add",onclick="addClick("+result.recordset[0].Soluong+")") +
-                    a(href="",class="selectBuy")
-                        img(src="/images/cart.png", alt="")
-                        p Chọn mua
-                    button(class="selectBuy")
-                        img(src="/images/delete.png", alt="")
-                        p Xóa sản phẩm
-                    a(href="/updateProduct/"+result.recordset[0].Masanpham,class="selectBuy")
-                        img(src="/images/update.png", alt="")
-                        p Cập nhật sản phẩm
+                    if user && user.loainguoidung==="Buy"
+                        a(href="",class="selectBuy")
+                            img(src="/images/cart.png", alt="")
+                            p Chọn mua
+                    if user && user.loainguoidung==="Sale"
+                        button(class="selectBuy")
+                            img(src="/images/delete.png", alt="")
+                            p Xóa sản phẩm
+                        a(href="/updateProduct/"+result.recordset[0].Masanpham,class="selectBuy")
+                            img(src="/images/update.png", alt="")
+                            p Cập nhật sản phẩm
 
     div(class="alertDelete")
         div(class="titleDelete") 

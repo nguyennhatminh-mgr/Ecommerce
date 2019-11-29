@@ -1,4 +1,8 @@
 *{margin: 0px;padding: 0px;}
+body{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
 .subheader{
     background-color: #0a930a;
     height: 30px;
@@ -33,7 +37,7 @@ ul.setbackground li.sympol img{
     margin-right: 10px;
 }
 ul.setbackground li.formSearch{
-    width: 65%;
+    width: 59%;
 }
 ul.setbackground li.formSearch form{
     width: 100%;
@@ -43,16 +47,17 @@ ul.setbackground li.formSearch form{
 ul.setbackground li.formSearch form input{
     height: 30px;
     width: 60%;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px 10px;
     border: 0px;
     margin-right: 5px;
+    font-size: 15px;
 }
 ul.setbackground li.formSearch form button{
     background: brown;
     height: 40px;
     width: 100px;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px 10px;
     border:0px;
     color: white;
@@ -95,6 +100,7 @@ ul.setbackground li.cart img{
 }
 .bottomHeader ul li{
     padding: 5px 20px;
+    transition: 0.4s;
 }
 .bottomHeader ul li a{
     text-decoration: none;
@@ -107,6 +113,7 @@ ul.setbackground li.cart img{
     position: relative;
     width: 16%;
     text-align: center;
+    transition: 0.4s;
 }
 .bottomHeader ul li.categoryProduct:hover .listdanhmuc{
     opacity: 1;
@@ -117,11 +124,13 @@ ul.setbackground li.cart img{
     background-color: white;
     position: absolute;
     z-index: 99;
-    top: 27px;
+    top: 30px;
     left: -1px;
     opacity: 0;
     visibility: hidden;
-    border: 1px solid gray;
+    border: 1px solid #bbb8b8;
+    border-radius: 3px;
+    transition: 0.4s;
 }
 .bottomHeader ul li.categoryProduct .listdanhmuc a{
     color: black;
@@ -129,6 +138,7 @@ ul.setbackground li.cart img{
 }
 .bottomHeader ul li.categoryProduct .listdanhmuc .itemdanhmuc{
     padding: 5px;
+    border-radius: 3px;
 }
 .bottomHeader ul li.categoryProduct .listdanhmuc .itemdanhmuc:hover{
     background-color: #1aaa1a;

@@ -10,7 +10,7 @@ html(lang="en")
         script(src="/utility/utility.js")
     body
         div(class="subheader")
-            p="Chào mừng " + (user?user.tendangnhap:"")+ " đến với shop"
+            p="Chào mừng " + (user?user.hovaten:"")+ " đến với shop"
         div(class="header")
             ul(class="setbackground")
                 li(class="sympol")
@@ -19,18 +19,23 @@ html(lang="en")
                     form(action="/search/product",method="POST")
                         input(type="text" name="searchProduct" placeholder="Tìm kiếm ở đây" value=searchPro?searchPro:"")
                         button Tìm kiếm
-                li(class="cart")
-                    a(href="")
-                        img(src="/images/cart.png", alt="")
-                        p Giỏ hàng
+                if user && user.loainguoidung==="Buy"
+                    li(class="cart")
+                        a(href="")
+                            img(src="/images/cart.png", alt="")
+                            p Giỏ hàng
                 li(class="cart")
                     a(href="/login")
                         img(src="/images/login.png", alt="")
                         p Đăng nhập
                 li(class="cart")
-                    a(href="")
+                    a(href="/signup")
                         img(src="/images/login.png", alt="")
                         p Đăng ký
+                li(class="cart")
+                    a(href="/logout")
+                        img(src="/images/login.png", alt="")
+                        p Đăng xuất
         div(class="bottomHeader")
             ul
                 li(class="categoryProduct")
@@ -41,7 +46,8 @@ html(lang="en")
                                 a(href="/search/category/"+dm.Madanhmuc)= dm.Tendanhmuc
                 li(class="homePage")
                     a(href="/home") TRANG CHỦ
-                li(class="addProduct")
-                    a(href="/addProduct") THÊM SẢN PHẨM MỚI
+                if user && user.loainguoidung==="Sale"
+                    li(class="addProduct")
+                        a(href="/addProduct") THÊM SẢN PHẨM MỚI
         block content
         

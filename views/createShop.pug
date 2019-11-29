@@ -1,0 +1,21 @@
+extends ./layouts/common.pug
+
+block content
+    link(rel="stylesheet", href="/styles/createShop.css")
+    div(class="totalShop")
+        div
+            div(class="titleInShop")
+                p Tạo cửa hàng
+
+            form(action="/createshop", method="post")
+                div
+                    input(type="text",name="tencuahang",placeholder="Tên cửa hàng")            
+                div
+                    input(type="text",name="diachi",placeholder="Địa chỉ")            
+                div
+                    input(type="date",name="ngaythamgia",placeholder="Ngày tham gia",class="ngaythamgia")            
+                div(style="display: none; visibility: hidden; opacity: 0;")
+                    input(type="text",name="manguoidung",value=manguoidung)            
+                div
+                    button Tạo
+    script(src="/public/utility/createShop.js")

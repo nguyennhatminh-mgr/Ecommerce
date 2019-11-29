@@ -48,7 +48,7 @@ app.post('/addProduct/create',upload.single("imageURL"),(req,res)=>{
     var filepath=convertPathFile(req.file.path);
     
     var madanhmuc=findMaByTen(req.body.cateproductName);
-    var proId=generateUniqueId();
+    var proId=generateUniqueId("MSP");
     var macuahang="MCH222222";
     //Gia su nguoi dung nhap dung
     var queryInsert="insert into Product values('"+madanhmuc+"','"+proId+"',N'"+req.body.productName+"',N'"+req.body.productDescription+"',"+req.body.priceBuy+","+req.body.priceSale+",'"+filepath+"',N'"+req.body.manufacterName+"',N'"+req.body.manufacterAddr+"','"+req.body.manufacterPhone+"','"+macuahang+"',null,"+req.body.numberOfProduct+")";
@@ -157,11 +157,10 @@ app.get("/delete/product/:masanpham",loginMiddleware,(req,res)=>{
 });
 
 app.get("/login",(req,res)=>{
-    res.render("login",{danhmuc:danhmuc});
+    res.render("login");
 });
 
 app.post("/login",urlencodedParser,(req,res)=>{
-    console.log(req.body);
     var username=req.body.tendangnhap;
     var password=req.body.matkhau;
 
@@ -172,6 +171,111 @@ app.post("/login",urlencodedParser,(req,res)=>{
     }).catch(err=>{
         console.log(err);
     });
+});
+
+app.get("/signup",(req,res)=>{
+    res.render("signup");
+});
+
+app.post("/signup",urlencodedParser,(req,res)=>{
+    console.log(req.body);
+    
+    var tendangnhap=req.body.tendangnhap;
+    var matkhau=req.body.matkhau;
+    var xacnhanmk=req.body.xacnhanmk;
+    //check tendangnhap is duplicate or not
+    sql.connect(config).then(pool => {
+        return pool.request().query("select * from UserAccount");
+    }).then(result =>{
+        for(var i=0;i<result.recordset.length;i++){
+            if(tendangnhap===result.recordset[i].tendangnhap){
+                res.render("signup",{errors:"Username is exist.",values:req.body});
+                return;
+            }
+        }
+    }).catch(err=>{
+        console.log(err);
+    });
+    if(matkhau!== xacnhanmk){
+        res.render("signup",{errors:"Password and confirm password are not same.",values:req.body});
+            return;
+    }
+    // checkNull(req.body.hovaten,req,res);
+    // checkNull(req.body.gioitinh,req,res);
+    // checkNull(req.body.ngaysinh,req,res);
+    // checkNull(req.body.diachi,req,res);
+    // checkNull(req.body.loainguoidung,req,res);
+    // checkNull(req.body.email,req,res);
+    // checkNull(req.body.sodienthoai,req,res);
+    // checkNull(req.body.tendangnhap,req,res);
+    // checkNull(req.body.matkhau,req,res);
+    // checkNull(req.body.xacnhanmk,req,res);
+
+    //create query insert
+    var manguoidung=generateUniqueId("MND");
+    var mataikhoan=generateUniqueId("MTK");
+    
+    var matkhauhash=md5(req.body.matkhau);
+    var queryInsertMyUser="insert into MyUser values('"+manguoidung+"',N'"+req.body.hovaten+"',N'"+req.body.gioitinh+"','"+req.body.ngaysinh+"',N'"+req.body.diachi+"','"+req.body.email+"','"+req.body.sodienthoai+"')";
+    var queryInsertUserAccount="insert into UserAccount values('"+mataikhoan+"','"+req.body.tendangnhap+"','"+matkhauhash+"','"+manguoidung+"')";
+    var queryInsertUserBuyProduct="insert into UserBuyProduct values('"+manguoidung+"',0)";
+    
+
+    //Insert to table MyUser
+    sql.connect(config).then(pool => {
+        return pool.request().query(queryInsertMyUser);
+    }).then(result =>{
+        //Insert to table UserAccount
+        sql.connect(config).then(pool => {
+            return pool.request().query(queryInsertUserAccount);
+        }).then(result =>{
+            res.cookie('accountId',mataikhoan);
+            if(req.body.loainguoidung==="Người mua hàng"){
+                sql.connect(config).then(pool => {
+                    return pool.request().query(queryInsertUserBuyProduct);
+                }).then(result =>{
+                    res.redirect("/home");
+                    return;
+                }).catch(err=>{
+                    console.log(err);
+                });
+            }
+            else{
+                res.render("createShop",{manguoidung:manguoidung,danhmuc:danhmuc});
+                return;
+            }
+            
+        }).catch(err=>{
+            console.log(err);
+        });
+    }).catch(err=>{
+        console.log(err);
+    });
+
+});
+
+app.post("/createshop",urlencodedParser,(req,res)=>{
+    var macuahang=generateUniqueId("MCH");
+    var queryInsertShop="insert into Shop values('"+macuahang+"',N'"+req.body.tencuahang+"',N'"+req.body.diachi+"','"+req.body.ngaythamgia+"')";
+    var queryInsertSaleProduct="insert into UserSaleProduct values('"+req.body.manguoidung+"','"+macuahang+"')";
+    sql.connect(config).then(pool => {
+        return pool.request().query(queryInsertShop);
+    }).then(result =>{
+        sql.connect(config).then(pool => {
+            return pool.request().query(queryInsertSaleProduct);
+        }).then(result =>{
+            res.redirect("/home");
+        }).catch(err=>{
+            console.log(err);
+        });
+    }).catch(err=>{
+        console.log(err);
+    });
+});
+
+app.get("/logout",(req,res)=>{
+    res.cookie('accountId','');
+    res.redirect("/home");
 });
 
 app.listen("3000",()=>{
@@ -220,8 +324,8 @@ function findTendanhmucByMadanhmuc(Madanhmuc){
     }
 }
 
-function generateUniqueId(){
-    return "MSP"+Math.random().toString(36).substr(4,6);
+function generateUniqueId(ma){
+    return ma+Math.random().toString(36).substr(4,6);
 }
 
 function findIdProductByName(name,arr){
@@ -255,30 +359,67 @@ function validateUser(username,password,listUser,req,res){
     res.redirect("/home");
 }
 
+function checkNull(valueToCheck,req,res){
+    if(!valueToCheck){
+        res.render("signup",{errors:"Value of is null.",values:req.body});
+        return;
+    }
+}
+
 // function Middleware
 function loginMiddleware(req,res,next){
     if(!req.cookies.accountId){
         res.redirect("/login");
         return;
     }
-    var listUser=null;
-    var user=null;
+    // var listUser=null;
+    var userAccount=null;
 
     sql.connect(config).then(pool => {
-        return pool.request().query("select * from UserAccount");
+        return pool.request().query("select * from UserAccount where mataikhoan='"+req.cookies.accountId+"'");
     }).then(result =>{
-        listUser=result.recordset;
-        for(var i=0;i<listUser.length;i++){
-            if(listUser[i].mataikhoan===req.cookies.accountId){
-                user=listUser[i];
-            }
-        }
-        if(!user){
+        userAccount=result.recordset[0];
+        //check accountid có tồn tại hay không
+        if(!userAccount){
             res.redirect("/login");
             return;
         }
-        res.locals.user=user;
-        next();
+        //Câu lệnh truy vấn để tìm người dùng là bán hàng hoặc mua hàng
+        var queryUserBuy="select MyUser.manguoidung,hovaten,diem from MyUser,UserBuyProduct where MyUser.manguoidung='"+userAccount.manguoidung+"' and MyUser.manguoidung=UserBuyProduct.manguoidung";
+        var queryUserSale="select MyUser.manguoidung,macuahang,hovaten from MyUser,UserSaleProduct where MyUser.manguoidung='"+userAccount.manguoidung+"' and MyUser.manguoidung=UserSaleProduct.manguoidung";
+        sql.connect(config).then(pool => {
+            return pool.request().query(queryUserBuy);
+        }).then(result =>{
+            var userBuy=null;
+            userBuy=result.recordset[0];
+            //Nếu là người mua hàng
+            if(userBuy){
+                userBuy.loainguoidung="Buy";
+                console.log(userBuy);
+                res.locals.user=userBuy;
+                next();
+            }
+            //Nếu là người bán hàng
+            else{
+                sql.connect(config).then(pool => {
+                    return pool.request().query(queryUserSale);
+                }).then(result =>{
+                    var userSale=null;
+                    userSale=result.recordset[0];
+                    if(userSale){
+                        userSale.loainguoidung="Sale";
+                        console.log(userSale);
+                        res.locals.user=userSale;
+                        next();
+                    }
+                }).catch(err=>{
+                    console.log(err);
+                });   
+            }
+        }).catch(err=>{
+            console.log(err);
+        });    
+
     }).catch(err=>{
         console.log(err);
     });
