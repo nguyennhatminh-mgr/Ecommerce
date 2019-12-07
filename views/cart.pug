@@ -1,0 +1,25 @@
+extends ./layouts/common.pug
+
+block content
+    link(rel="stylesheet", href="/styles/cart.css")
+    div(class="totalcart")
+        p(class="titlecart") GIỎ HÀNG
+        div(class="chiacotcart")
+            div(class="cottraicart")
+                each item in result
+                    div(class="itemincart")
+                        img(src=item.Hinhanh, alt="")
+                        div(class="textincart")
+                            p=item.Tensanpham
+                            p="Cung cấp bởi " 
+                                span(style="color: blue;")=item.Tennhasx
+                            p(style="color: red; font-weight:bold;margin-top: 5px;margin-bottom: 10px;")=funcCut(item.Giaban)+" đ"
+                            a(href="/deleteproincart/"+item.magiohang+"-"+item.Madanhmuc+"-"+item.Masanpham+"-"+item.manguoidung) Xóa
+                        div
+                            p Số lượng
+                            p(style="color: red; font-weight: bold;")=item.soluong
+                    
+            div(class="cotphaicart")
+                p Thành tiền:
+                p(style="color: red;font-size: 20px; font-weight:bold;margin-top: 5px;margin-bottom: 40px;")= funcCut(totalMoney) + " đ"
+                a(href="/conductorder/"+result[0].manguoidung+"-"+totalMoney,class="dathang") Tiến hành đặt hàng

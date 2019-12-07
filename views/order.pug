@@ -1,0 +1,50 @@
+extends ./layouts/common.pug
+
+block content
+    link(rel="stylesheet", href="/styles/order.css")
+    div(class="totalorder")
+        div(style="width: 70%;")
+            p(class="titleorder") Chi tiết đơn đặt hàng
+            div(class="contentorder")
+                form(action="/conductorder/"+result[0].magiohang+"-"+result[0].manguoidung+"-"+totalMoney, method="post")
+                    p 1.Hình thức giao hàng
+                    div(style="width:100%; position: relative;")
+                        input(type="text",name="hinhthucgiaohang",class="giaohang",readonly,required,value=addInfo?addInfo.loaidonhang:"")
+                        div(class="hinhthucgiaohang")
+                            p(class="thuong") Giao hàng thường
+                            p(class="nhanh") Giao hàng nhanh
+                    div
+                        p 2.Địa chỉ giao hàng
+                        if !isdetail
+                            input(type="text",name="diachigiaohang",required,value=diachi)
+                        else
+                            input(type="text",name="diachigiaohang",required,value=diachi,readonly)
+                    div
+                        p 3.Ghi chú
+                        if !isdetail
+                            input(type="text",name="ghichu",value=addInfo?addInfo.ghichu:"")
+                        else
+                            input(type="text",name="ghichu",value=addInfo?addInfo.ghichu:"",readonly)
+                    div(class="sanphamdonhang")
+                        div(class="suadonhang")
+                            p 4.Đơn hàng
+                            if !isdetail
+                                a(href="/cart/"+result[0].manguoidung) Sửa
+                        hr
+                        each item in result
+                            div(class="noidungdonhang")
+                                div(style="width: 85%; display: flex;")
+                                    p(style="margin-right: 5px;")= item.soluong
+                                    p(style="margin-right: 5px;") x
+                                    p= item.Tensanpham
+                                p(style="color: red;")= funcCutStringNumber(item.Giaban) +" đ"
+                        hr
+                        div(style="width: 100%; display: flex;")
+                            p(style="margin-right: 73%; font-weight: bold;") Thành tiền:
+                            p(style="color: red;")=funcCutStringNumber(totalMoney) +" đ"
+                    if !isdetail
+                        div
+                            button(class="datmua") ĐẶT MUA
+                            p (Vui lòng kiểm tra đơn hàng trước khi đặt hàng)
+
+    script(src="/utility/order.js")

@@ -16,28 +16,37 @@ block  content
                         span= funcCutStringNumber(result.recordset[0].Giaban) + " đ"
                     p(class="description")=result.recordset[0].Motachitiet
                 div(class="totalBuy")
-                    div
-                        p Số lượng
-                        div(class="numberOfProduct")
-                            p(class="sub") -
-                            p(class="number") 1
-                            p(class="add",onclick="addClick("+result.recordset[0].Soluong+")") +
                     if user && user.loainguoidung==="Buy"
-                        a(href="",class="selectBuy")
-                            img(src="/images/cart.png", alt="")
-                            p Chọn mua
-                    if user && user.loainguoidung==="Sale"
-                        button(class="selectBuy")
+                        form(action="/addToCard", method="post")
+                            div
+                                p Số lượng
+                                div(class="numberOfProduct")
+                                    p(class="sub") -
+                                    input(class="number",name="soluong",value="1",readonly)
+                                    input(name="madanhmuc",value=result.recordset[0].Madanhmuc,readonly,class="disappearforever")
+                                    input(name="masanpham",value=result.recordset[0].Masanpham,readonly,class="disappearforever")
+                                    input(name="manguoidung",value=user.manguoidung,readonly,class="disappearforever")
+                                    p(class="add",onclick="addClick("+result.recordset[0].Soluong+")") +
+                            button(href="",class="selectBuy")
+                                img(src="/images/cart.png", alt="")
+                                p Chọn mua
+
+                    if user && user.loainguoidung==="Sale" && result.recordset[0].Macuahang===user.macuahang
+                        button(class="selectBuy deletePro")
                             img(src="/images/delete.png", alt="")
                             p Xóa sản phẩm
                         a(href="/updateProduct/"+result.recordset[0].Masanpham,class="selectBuy")
                             img(src="/images/update.png", alt="")
                             p Cập nhật sản phẩm
 
-    div(class="alertDelete")
-        div(class="titleDelete") 
-            p Bạn có chắc chắn muốn xóa ?
-            div(class="btnDelete")
-                a(href="/delete/product/"+result.recordset[0].Masanpham) Có
-                button(class="nodelete") Không
+                if error
+                    p(style="color: white; padding: 10px 20px; border-radius: 3px;background-color: red;")=error
+
+        div(class="alertDelete")
+            div(class="titleDelete") 
+                div
+                    p Bạn có chắc chắn muốn xóa ?
+                    div(class="btnDelete")
+                        a(href="/delete/product/"+result.recordset[0].Madanhmuc+"-"+result.recordset[0].Masanpham) Có
+                        button(class="nodelete") Không
     script(src="/utility/productDetail.js")

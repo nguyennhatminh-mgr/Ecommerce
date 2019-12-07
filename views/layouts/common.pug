@@ -10,7 +10,12 @@ html(lang="en")
         script(src="/utility/utility.js")
     body
         div(class="subheader")
-            p="Chào mừng " + (user?user.hovaten:"")+ " đến với shop"
+            div(class="titlesubheader")
+                p="Chào mừng " + (user?user.hovaten:"")+ " đến với shop"
+            if user
+                a(href="/viewUser/"+user.manguoidung,class="avatarsubheader")
+                    img(src="/images/avatar-default.jpg", alt="")
+                    p=user.hovaten
         div(class="header")
             ul(class="setbackground")
                 li(class="sympol")
@@ -19,23 +24,26 @@ html(lang="en")
                     form(action="/search/product",method="POST")
                         input(type="text" name="searchProduct" placeholder="Tìm kiếm ở đây" value=searchPro?searchPro:"")
                         button Tìm kiếm
-                if user && user.loainguoidung==="Buy"
-                    li(class="cart")
-                        a(href="")
-                            img(src="/images/cart.png", alt="")
-                            p Giỏ hàng
-                li(class="cart")
-                    a(href="/login")
-                        img(src="/images/login.png", alt="")
-                        p Đăng nhập
-                li(class="cart")
-                    a(href="/signup")
-                        img(src="/images/login.png", alt="")
-                        p Đăng ký
-                li(class="cart")
-                    a(href="/logout")
-                        img(src="/images/login.png", alt="")
-                        p Đăng xuất
+                div(class="cartAndLog")
+                    if user && user.loainguoidung==="Buy"
+                        li(class="cart")
+                            a(href="/cart/"+user.manguoidung)
+                                img(src="/images/cart.png", alt="")
+                                p Giỏ hàng
+                    if !user
+                        li(class="cart")
+                            a(href="/login")
+                                img(src="/images/login.png", alt="")
+                                p Đăng nhập
+                        li(class="cart")
+                            a(href="/signup")
+                                img(src="/images/login.png", alt="")
+                                p Đăng ký
+                    if user
+                        li(class="cart")
+                            a(href="/logout")
+                                img(src="/images/login.png", alt="")
+                                p Đăng xuất
         div(class="bottomHeader")
             ul
                 li(class="categoryProduct")
@@ -46,8 +54,45 @@ html(lang="en")
                                 a(href="/search/category/"+dm.Madanhmuc)= dm.Tendanhmuc
                 li(class="homePage")
                     a(href="/home") TRANG CHỦ
+                if user && user.loainguoidung==="Buy"
+                    li(class="addProduct")
+                        a(href="/listorders/"+user.manguoidung) ĐƠN HÀNG CỦA TÔI
                 if user && user.loainguoidung==="Sale"
                     li(class="addProduct")
                         a(href="/addProduct") THÊM SẢN PHẨM MỚI
+                    li(class="addProduct")
+                        a(href="/myProduct/"+user.macuahang) SẢN PHẨM CỦA TÔI
+                    li(class="addProduct")
+                        a(href="/myShop/"+user.macuahang) CỬA HÀNG CỦA TÔI
+
         block content
-        
+
+        div(class="chamsockhachhang")
+            p HỖ TRỢ KHÁCH HÀNG
+            p HỢP TÁC VÀ LIÊN KẾT
+            p PHƯƠNG THỨC THANH TOÁN
+            p KẾT NỐI VỚI CHÚNG TÔI
+        div(class="ndchamsoc")
+            div(class="cotthu1")
+                ul
+                    li Hotline đặt hàng: 1800-6963
+                    li Hotline chăm sóc khách hàng: 1900-6035
+            div(class="cotthu1")
+                ul
+                    li Quy chế hoạt động Sàn GDTMĐT
+                    li Bán hàng cùng shop
+
+            div(class="cotthu1")
+                ul
+                    li Thẻ VISA, thẻ ngân hàng
+                    li Tiền mặt
+                    li Internet banking
+                    li Trả góp
+            div(class="cotthu1")
+                ul
+                    li 
+                        span="Facebook: "
+                        a(href="https://www.facebook.com/nhminhLT") Founder
+                    li
+                        p="Email: nguyennhatminh12a1@gmail.com"
+            

@@ -1,0 +1,54 @@
+.outsideViewUser{
+    width: 100%;
+    height: 600px;
+    background-color: #f4f4f4;
+    padding-top: 30px;
+}
+.totalViewUser{
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    border-radius: 5px;
+}
+.totalViewUser .lineInViewUser{
+    display: flex;
+    margin-left: 6%;
+    margin-bottom: 10px;
+}
+.totalViewUser .lineInViewUser p{
+    width: 15%;
+    margin-right: 5%;
+}
+.totalViewUser .lineInViewUser input{
+    padding: 8px 10px;
+    border-radius: 3px;
+    border:1px solid #1aaa1a;
+    width: 40%;
+    font-size: 15px;
+}
+.totalViewUser .lineInViewUser select{
+    padding: 5px 20px;
+    border-radius: 3px;
+    border: 1px solid #1aaa1a;
+    margin-right: 20px;
+}
+
+.totalViewUser button{
+    padding: 10px 20px;
+    width: 200px;
+    color: white;
+    background-color: brown;
+    cursor: pointer;
+    border-radius: 5px;
+    border:0px;
+    margin-left: 24.7%;
+}
+.totalViewUser button:hover{
+    background-color: #1aaa1a;
+}
+.disappear{
+    display: none !important;
+}
+

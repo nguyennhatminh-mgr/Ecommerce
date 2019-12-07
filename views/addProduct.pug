@@ -6,20 +6,21 @@ block content
         form(action=myAction, method="post",enctype="multipart/form-data")
             div(class="selectCategory")
                 //- label(for="category") Loại danh mục sản phẩm
-                input(class="catename" id="category" type="text" name="cateproductName" placeholder="Tên danh mục sản phẩm" readonly value=sanpham?sanpham.Tendanhmuc:"")
+                input(class="catename" id="category" type="text" name="cateproductName" placeholder="Tên danh mục sản phẩm" readonly required value=sanpham?sanpham.Tendanhmuc:"")
                 div(class="subselectCategory")
                     ul
                         each dm in danhmuc
                             li(class="itemSelectCate")=dm.Tendanhmuc
-            input(type="text" name="productName" placeholder="Tên sản phẩm" value=sanpham?sanpham.Tensanpham:"")
-            input(type="text" name="productDescription" placeholder="Mô tả chi tiết" value=sanpham?sanpham.Motachitiet:"")
-            input(type="number" name="priceBuy" placeholder="Giá mua" value=sanpham?sanpham.Giamua:"")
-            input(type="number" name="priceSale" placeholder="Giá bán" value=sanpham?sanpham.Giaban:"")
-            input(type="file" name="imageURL" placeholder="Hình ảnh" value=sanpham?"E:\\Visual studio code\\LearnNodeJS\\AccessSQL\\ASS_CSDL\\public\\images\\Products\\baotayda.jpg":"") 
-            input(type="text" name="manufacterName" placeholder="Tên nhà sản xuất" value=sanpham?sanpham.Tennhasx:"")
-            input(type="text" name="manufacterAddr" placeholder="Địa chỉ nhà sản xuất" value=sanpham?sanpham.Diachinhasx:"")
-            input(type="text" name="manufacterPhone" placeholder="Số điện thoại nhà sản xuất" value=sanpham?sanpham.Sdtnhasx:"")
-            input(type="number" name="numberOfProduct" placeholder="Số lượng sản phẩm" value=sanpham?sanpham.Soluong:"")
+            input(type="text" name="productName" placeholder="Tên sản phẩm" required value=sanpham?sanpham.Tensanpham:"")
+            input(type="text" name="productDescription" placeholder="Mô tả chi tiết" required value=sanpham?sanpham.Motachitiet:"")
+            input(type="number" name="priceBuy" placeholder="Giá mua" required value=sanpham?sanpham.Giamua:"")
+            input(type="number" name="priceSale" placeholder="Giá bán" required value=sanpham?sanpham.Giaban:"")
+            input(type="file" name="imageURL" placeholder="Hình ảnh" required value=sanpham?"E:\\Visual studio code\\LearnNodeJS\\AccessSQL\\ASS_CSDL\\public\\images\\Products\\baotayda.jpg":"") 
+            input(type="text" name="manufacterName" placeholder="Tên nhà sản xuất" required value=sanpham?sanpham.Tennhasx:"")
+            input(type="text" name="manufacterAddr" placeholder="Địa chỉ nhà sản xuất" required value=sanpham?sanpham.Diachinhasx:"")
+            input(type="text" name="manufacterPhone" placeholder="Số điện thoại nhà sản xuất" required value=sanpham?sanpham.Sdtnhasx:"")
+            input(type="number" name="numberOfProduct" placeholder="Số lượng sản phẩm" required value=sanpham?sanpham.Soluong:"")
+            input(type="text" name="macuahang" value=user?user.macuahang:"" class="disappear")
             
             button= add
     script(src="/utility/addproduct.js")

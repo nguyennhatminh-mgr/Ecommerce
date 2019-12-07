@@ -1,0 +1,94 @@
+.totalorder{
+    width: 85%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.totalorder p.titleorder{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.totalorder .contentorder{
+    
+}
+.totalorder .contentorder p{
+    font-size: 17px;
+}
+.totalorder .contentorder input{
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 17px;
+    border-radius: 4px;
+    border: 1px solid #1aaa1a;
+    margin-top: 5px;
+}
+.totalorder .contentorder .hinhthucgiaohang{
+    position: absolute;
+    border: 1px solid rgb(204, 193, 193);
+    border-radius: 3px;
+    top: 40px;
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+}
+.totalorder .contentorder .hinhthucgiaohang p{
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.totalorder .contentorder .hinhthucgiaohang p:hover{
+    background-color: #1aaa1a;
+    color: white;
+}
+.appearorder{
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.contentorder button.datmua{
+    width: 40%;
+    padding: 10px;
+    border:0px;
+    border-radius: 5px;
+    background-color: brown;
+    color: white;
+    margin-top: 20px;
+    font-size: 17px;
+}
+.contentorder button:hover{
+   background-color: #1aaa1a;
+   color: white;
+   cursor: pointer;
+   
+}
+.sanphamdonhang{
+    width: 100%;
+    border: 1px solid #1aaa1a;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.sanphamdonhang .suadonhang{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.sanphamdonhang .suadonhang p{
+    margin-right: 75%;
+}
+.sanphamdonhang .suadonhang a{
+   text-decoration: none;
+   padding: 5px;
+   background-color: brown;
+   color: white;
+   border: 0px;
+   border-radius: 3px;
+   width: 100px;
+   text-align: center;
+}
+.sanphamdonhang .suadonhang a:hover{
+    background-color: #1aaa1a;
+}
+.sanphamdonhang .noidungdonhang{
+    display: flex;
+    padding: 10px 0px;
+}

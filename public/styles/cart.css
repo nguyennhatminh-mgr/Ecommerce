@@ -1,0 +1,67 @@
+.totalcart{
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+}
+.totalcart p.titlecart{
+    margin-left: 70px;
+    font-size: 24px;
+}
+.totalcart .chiacotcart{
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+}
+.totalcart .cottraicart{
+    width: 78%;
+    margin-right: 2%;
+}
+.totalcart .cottraicart .itemincart{
+    display: flex;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+.totalcart .cottraicart .itemincart img{
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 20px;
+}
+.totalcart .cottraicart .itemincart .textincart{
+    margin-right: 10px;
+    width: 80%;
+}
+.totalcart .cottraicart .itemincart .textincart a{
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 3px;
+    background-color: brown;
+    color: white;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.totalcart .cottraicart .itemincart .textincart a:hover{
+    background-color: #1aaa1a;
+}
+
+.totalcart .cotphaicart{
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    width: 20%;
+}
+.totalcart .chiacotcart .cotphaicart a.dathang{
+    text-decoration: none;
+    padding: 5% 20%;
+    border-radius: 3px;
+    background-color: brown;
+    color: white;
+}
+.totalcart .cotphaicart a.dathang:hover{
+    background-color: #1aaa1a;
+}
+.totalcart{}
+.totalcart{}

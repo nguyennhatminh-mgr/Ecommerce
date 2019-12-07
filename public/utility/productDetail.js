@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',()=>{
-    var btnDel=document.querySelectorAll(".selectBuy")[1];
+    var btnDel=document.querySelector(".deletePro");
     var alertDelete=document.querySelector(".alertDelete");
     var nodelete=document.querySelector(".nodelete");
 

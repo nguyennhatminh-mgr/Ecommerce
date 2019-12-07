@@ -4,6 +4,10 @@
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    height: 300px;
+}
+.totalShop form{
+    width: 100%;
 }
 .totalShop input{
     padding: 10px 20px;
@@ -14,7 +18,7 @@
     width: 55%;
 }
 .totalShop .titleInShop{
-
+    margin-bottom: 20px;
 }
 .totalShop .titleInShop p{
     color: #1aaa1a;
@@ -26,10 +30,17 @@
     color: white;
     border-radius: 4px;
     cursor: pointer;
-    width: 40%;
+    width: 200px;
+    border: 0px;
 }
 .totalShop button:hover{
     background-color: #1aaa1a;
 }
-.totalShop{}
-.totalShop{}
+.totalShop .inlineShop{
+    display: flex;
+    width: 100%;
+}
+.totalShop .inlineShop p{
+    margin-right: 20px;
+    width: 20%;
+}

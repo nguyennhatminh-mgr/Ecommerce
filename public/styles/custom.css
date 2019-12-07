@@ -12,6 +12,28 @@ body{
     color:white;
     justify-content: center;
 }
+.subheader .titlesubheader{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+.subheader p{
+    
+}
+.subheader img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.subheader a.avatarsubheader{
+    display: flex;
+    justify-content: flex-end;
+    width: 10%;
+    padding-right: 10px;
+    text-decoration: none;
+    color: white;
+}
 .header{
     background-color: #1aaa1a;
     height: 80px;
@@ -87,6 +109,11 @@ ul.setbackground li.cart img{
     height: 20px;
     margin-right: 3px;
 }
+ul.setbackground .cartAndLog{
+    display: flex;
+    justify-content: flex-end;
+    width: 35%;
+}
 
 .bottomHeader{
     width: 98%;
@@ -145,4 +172,32 @@ ul.setbackground li.cart img{
 }
 .bottomHeader ul li.categoryProduct .listdanhmuc .itemdanhmuc:hover a{
     color: white;
+}
+
+.chamsockhachhang{
+    /* width: 95%; */
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    padding-top: 50px;
+    background-color: rgb(223, 218, 218);
+    display: flex;
+}
+.chamsockhachhang p{
+    font-size: 15px;
+    font-weight: bold;
+    border-left: 10px solid #1aaa1a;
+    padding-left: 10px;
+    width: 25%;
+}
+.ndchamsoc{
+    display: flex;
+    /* width: 95%; */
+    padding-left: 70px;
+    padding-bottom: 50px;
+    background-color: rgb(223, 218, 218);
+}
+.ndchamsoc .cotthu1{
+    width: 25%;
+    margin-right: 25px;
 }

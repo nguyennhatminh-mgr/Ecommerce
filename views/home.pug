@@ -5,6 +5,7 @@ block content
             div(class="titleProduct") 
                 p Product
             div(class="listProduct")
+                if user && user.loainguoidung==="Sale"
                 each pro in result.recordset
                     div(class="eachProduct")
                         div(class="coverBlackEachProduct")
@@ -15,4 +16,5 @@ block content
                         div(class="belowEachProduct")
                             p=pro.Tensanpham
                             img(src=pro.Hinhanh, alt="")
+            
         script(src="/utility/utility.js")

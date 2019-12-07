@@ -1,0 +1,26 @@
+extends ./layouts/common.pug
+
+block content
+    link(rel="stylesheet", href="/styles/listorders.css")
+    div(class="totalListOrders")
+        table
+            tr
+                th Mã đơn hàng
+                th Loại đơn hàng
+                th Ngày lập
+                th Ghi chú
+                th Địa chỉ giao hàng
+                th Xóa đơn hàng
+                th Xem chi tiết
+            each item in result
+                tr
+                    td= item.madonhang
+                    td= item.loaidonhang
+                    td= item.ngaylap
+                    td= item.ghichu
+                    td= item.diachigiaohang
+                    td
+                        a(href="/deleteOrder/"+user.manguoidung+"-"+item.madonhang) Xóa
+                    td
+                        a(href="/orderdetail/"+item.madonhang+"-"+item.tongtien) Xem chi tiết
+            

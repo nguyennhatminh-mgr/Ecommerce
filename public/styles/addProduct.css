@@ -55,3 +55,9 @@
     background-color: #1aaa1a;
     color: white;
 }
+
+.disappear{
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+}

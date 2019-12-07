@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     var number=document.querySelector(".number");
 
     sub.addEventListener("click",()=>{
-        if(parseInt(number.innerHTML)>1)
-            number.innerHTML=parseInt(number.innerHTML)-1;
+        if(parseInt(number.value)>1)
+            number.value=parseInt(number.value)-1;
     });
 
     
@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 function addClick(soluong){
     var number=document.querySelector(".number");
-    if (parseInt(number.innerHTML)<soluong){
-        number.innerHTML=parseInt(number.innerHTML)+1;
+    if (parseInt(number.value)<soluong){
+        number.value=parseInt(number.value)+1;
     }
 }
 

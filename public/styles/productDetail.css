@@ -1,6 +1,7 @@
 .totalProDetail{
     width: 100%;
     position: relative;
+    height: 500px;
 }
 .totalside{
     width: 95%;
@@ -44,6 +45,7 @@
     padding: 10px;
     display: flex;
     border-top: 1px solid rgba(128, 128, 128, 0.521);
+    height: 12%;
 }
 .sideright .numberOfProduct{
     display: flex;
@@ -51,9 +53,13 @@
     width: 100px;
     margin-top: 3px;
 }
-.sideright .numberOfProduct p.number{
+.sideright .numberOfProduct input.number{
+    border:0px;
     border-right: 1px solid gray;
     border-left: 1px solid gray;
+    width: 33px;
+    text-align: center;
+    font-weight: bold;
 }
 .sideright .numberOfProduct p{
     width: 33px;
@@ -91,6 +97,10 @@
     height: 20px;
     margin-right: 3px;
 }
+.sideright .totalBuy form{
+    display: flex;
+}
+
 .alertDelete{
     width: 100%;
     height: 100%;
@@ -101,11 +111,16 @@
     padding-top: 200px;
     opacity: 0;
     visibility: hidden;
+    display: none;
 }
 .alertDelete .titleDelete{
     padding: 20px;
     background-color: white;
     height: 100px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
 }
 .alertDelete .titleDelete p{
     color: black;
@@ -142,4 +157,11 @@
 .appear{
     opacity: 1 !important;
     visibility: visible !important;
+    display: flex !important;
+}
+
+.disappearforever{
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
 }

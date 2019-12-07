@@ -11,34 +11,34 @@ div(class="totalSignup")
             div(class="chiacot")
                 div(class="cottrai")
                     div
-                        input(type="text",id="hovaten",name="hovaten",placeholder="Họ và tên",value=values?values.hovaten:"")
+                        input(type="text",id="hovaten",name="hovaten",placeholder="Họ và tên",required,value=values?values.hovaten:"")
                     div(style="position:relative;")
-                        input(type="text",id="gioitinh",name="gioitinh",placeholder="Giới tính",value=values?values.gioitinh:"",readonly)
+                        input(type="text",id="gioitinh",name="gioitinh",placeholder="Giới tính",requried,value=values?values.gioitinh:"",readonly)
                         div(class="hienthigioitinh")
                             p(class="itemgioitinh") Nam
                             p(class="itemgioitinh") Nữ 
                             p(class="itemgioitinh") Khác
                     div
-                        input(type="date",id="ngaysinh",name="ngaysinh",placeholder="Ngày sinh",value=values?values.ngaysinh:"")
+                        input(type="date",id="ngaysinh",name="ngaysinh",placeholder="Ngày sinh",required,value=values?values.ngaysinh:"")
                     div
-                        input(type="text",id="diachi",name="diachi",placeholder="Địa chỉ",value=values?values.diachi:"")
+                        input(type="text",id="diachi",name="diachi",placeholder="Địa chỉ",required,value=values?values.diachi:"")
                     div(style="position:relative;")
-                        input(type="text",id="loainguoidung",name="loainguoidung",placeholder="Loại người dùng",value=values?values.loainguoidung:"",readonly)
+                        input(type="text",id="loainguoidung",name="loainguoidung",required,placeholder="Loại người dùng",value=values?values.loainguoidung:"",readonly)
                         div(class="hienthiloaind")
                             p(class="itemloaind") Người mua hàng
                             p(class="itemloaind") Người bán hàng
 
                 div(class="cotphai")
                     div
-                        input(type="text",id="email",name="email",placeholder="Email",value=values?values.email:"")
+                        input(type="text",id="email",name="email",placeholder="Email",required,value=values?values.email:"")
                     div
-                        input(type="text",id="sodienthoai",name="sodienthoai",placeholder="Số điện thoại",value=values?values.sodienthoai:"")
+                        input(type="text",id="sodienthoai",name="sodienthoai",required,placeholder="Số điện thoại",value=values?values.sodienthoai:"")
                     div
-                        input(type="text",id="tendangnhap",name="tendangnhap",placeholder="Tên đăng nhập",value=values?values.tendangnhap:"")
+                        input(type="text",id="tendangnhap",name="tendangnhap",required,placeholder="Tên đăng nhập",value=values?values.tendangnhap:"")
                     div
-                        input(type="password",id="matkhau",name="matkhau",placeholder="Mật khẩu",value=values?values.matkhau:"")
+                        input(type="password",id="matkhau",name="matkhau",required,placeholder="Mật khẩu",value=values?values.matkhau:"")
                     div
-                        input(type="password",id="xacnhanmk",name="xacnhanmk",placeholder="Xác nhận",value=values?values.xacnhanmk:"")
+                        input(type="password",id="xacnhanmk",name="xacnhanmk",required,placeholder="Xác nhận",value=values?values.xacnhanmk:"")
                 
             div
                 button Đăng ký

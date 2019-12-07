@@ -9,9 +9,9 @@ div(class="totalLogin")
             p(class="err")=errors
         form(action="/login", method="post")
             div
-                input(type="text",id="tendangnhap",name="tendangnhap",placeholder="Tên đăng nhập",value=values?values.tendangnhap:"")
+                input(type="text",id="tendangnhap",name="tendangnhap",placeholder="Tên đăng nhập",value=values?values.tendangnhap:"",required="required")
             div
-                input(type="password",id="matkhau",name="matkhau",placeholder="Mật khẩu",value=values?values.matkhau:"")
+                input(type="password",id="matkhau",name="matkhau",placeholder="Mật khẩu",value=values?values.matkhau:"",required="required")
             div
                 button Đăng nhập
         p(class="notaccount") Chưa có tài khoản?

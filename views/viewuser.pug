@@ -1,0 +1,48 @@
+extends ./layouts/common.pug
+
+block content
+    link(rel="stylesheet", href="/styles/viewuser.css")
+    div(class="outsideViewUser")
+        div(style="margin-left:10%;margin-bottom: 10px;")
+            p(style="font-size: 18px; color: #1aaa1a;") Thông tin tài khoản
+        div(class="totalViewUser")
+            form(action="/viewUser/"+user?user.manguoidung:"", method="post")
+                div(class="lineInViewUser")
+                    p Họ và tên
+                    input(type="text",name="hovaten",value=result.hovaten)
+                div(class="lineInViewUser")
+                    p Số điện thoại
+                    input(type="text",name="sodienthoai",value=result.sdt)
+                div(class="lineInViewUser")
+                    p Email
+                    input(type="text",name="email",value=result.email)
+                div(class="lineInViewUser")
+                    p Địa chỉ
+                    input(type="text",name="diachi",value=result.diachi)
+                div(class="lineInViewUser initBdate")
+                    p Ngày sinh
+                    input(type="text",class="fakengaysinh",name="fakengaysinh",value=result.nam+"-"+result.thang+"-"+result.ngay,readonly,onclick="updateBdate("+result.ngay+","+result.thang+","+result.nam+")")
+                
+                div(class="lineInViewUser updateBdate disappear")
+                    p Ngày sinh
+                    select(name="ngay",class="selectChooseBdate",value=result.ngay)
+                        option Ngày
+                    select(name="thang",class="selectChooseBmonth",value=result.thang)
+                        option Tháng
+                    select(name="nam",class="selectChooseByear",value=result.nam)
+                        option Năm
+                
+                div(class="lineInViewUser initgioitinh")
+                    p Giới tính
+                    input(type="text",class="falegioitinh",name="fakegioitinh",readonly,onclick="updateGioitinh('"+result.gioitinh+"')",value=result.gioitinh)
+                div(class="lineInViewUser aftergioitinh disappear")
+                    p Giới tính
+                    select(name="gioitinh",class="gioitinh")
+                        option(value="Nữ") Nữ
+                        option(value="Nam") Nam
+                        option(value="Khác") Khác
+                div
+                    button Cập nhật
+
+    script(src="/utility/viewuser.js")
+                        
