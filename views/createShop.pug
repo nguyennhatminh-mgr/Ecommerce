@@ -16,11 +16,11 @@ block content
                     input(type="text",name="diachi",placeholder="Địa chỉ",required,value=result?result.diachi:"")            
                 div(class="inlineShop")
                     p Ngày tham gia
-                    input(type="text",name="ngaythamgia",placeholder="Ngày tham gia",disabled,class="ngaythamgia",value=result?result.ngaythamgia:"")            
+                    input(type="text",name="ngaythamgia",placeholder="Ngày tham gia",required,class="ngaythamgia",value=result?result.ngaythamgia:getd,readonly)            
                 div(style="display: none; visibility: hidden; opacity: 0;")
                     input(type="text",name="manguoidung",value=manguoidung)            
                 div(style="display: none; visibility: hidden; opacity: 0;")
-                    input(type="text",name="macuahang",value=result.macuahang)            
+                    input(type="text",name="macuahang",value=result?result.macuahang:"")            
                 div(style="width:100%; display: flex; justify-content: center;")
                     button= btn
     script(src="/public/utility/createShop.js")
